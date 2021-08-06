@@ -1,9 +1,11 @@
+var chai = require('chai');
 var should = require('chai').should();
+var expect = chai.expect;
 var Add = require('../maths');
 
 describe('Addition Tests', function()
 {
-    //should style
+    //expect style added
     it('should return 3 when passed one and two', function(){
         var numberOne = 1;
         var numberTwo = 2;
@@ -12,7 +14,20 @@ describe('Addition Tests', function()
 
         var actualResult = Add(numberOne, numberTwo);
 
-        actualResult.should.not.equal(expectedResult);
+        actualResult.should.equal(expectedResult);
+        expect(actualResult).to.equal(expectedResult);
+    });
 
+    //expect style added
+    it('should return not 3 when passed one and two', function(){
+        var numberOne = 1;
+        var numberTwo = 4;
+
+        var notExpectedResult = 3;
+
+        var actualResult = Add(numberOne, numberTwo);
+
+        actualResult.should.not.equal(notExpectedResult);
+        expect(actualResult).to.not.equal(notExpectedResult);
     });
 });
